@@ -9,6 +9,6 @@ test('create Intern object', () => {
 	expect(intern.getName()).toBe('Int Edgardo Pina');
 	expect(intern.getId()).toBe(111777);
 	expect(intern.getEmail()).toBe('int-edgardopina@yahoo.com');
-	expect(intern.getGithub()).toBe('edgardopina');
+	expect(intern.getSchool()).toBe('UofU');
 	expect(intern.getRole()).toBe('Intern');
 });
