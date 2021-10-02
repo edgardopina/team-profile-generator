@@ -1,8 +1,15 @@
-import { getTeamData } from './src/buildTeam.js';
+import { buildHtml } from './src/buildHtml.js';
+import {getTeamData} from './src/buildTeam.js';
+import {createEmployeeClassObjects} from './src/createEmployeeClassObjects.js';
 
-const startApp = async () => {
-	var employeeList = [];
-	await getTeamData(employeeList);
+
+const runApp = async () => {
+	let employeeListData = [];
+	let employeeListObjects = [];
+	
+	await getTeamData(employeeListData);
+	createEmployeeClassObjects(employeeListData, employeeListObjects);
+	buildHtml(employeeListObjects);
 };
 
-startApp();
+runApp();
