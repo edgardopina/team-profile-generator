@@ -1,12 +1,13 @@
-//TODO: Create a function to write README file
+import { writeFile } from 'fs';
+
+// function to write 'data' to '/path/to/fileName' file
 function writeToFile(fileName, data) {
 	return new Promise((resolve, reject) => {
 		writeFile(fileName, data, err => {
-			// if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+			// if error, reject the Promise and send the error to  Promise's `.catch()` method
 			if (err) {
 				reject(err);
-				// return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-				return;
+				return; // return to prevent  the Promise from accidentally executing the resolve() function as well
 			}
 			// if everything went well, resolve the Promise and send the successful data to the `.then()` method
 			resolve({
@@ -17,4 +18,4 @@ function writeToFile(fileName, data) {
 	});
 }
 
-export {writeToFile};
+export { writeToFile };

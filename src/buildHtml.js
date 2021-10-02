@@ -1,38 +1,13 @@
-import fs from 'fs';
+import {htmlTopSection, htmlBottomSection} from '../src/indexHtmlTemplates.js';
+
 function buildHtml(employeeListObjects) {
-	const htmlTopSection = `
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-      <title>My Team</title>
-   </head>
-   <body>
-      <header id="header">
-         <h1>My Team</h1>
-      </header>
-      <div class="container">
-         <div class="row">
-`;
-
-	const htmlBottomSection = `
-            </div>
-         </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js"></script>
-   </body>
-</html>
-`;
    let htmlBodySection = ``;
+   let uniqueLabel = '';
+   let uniqueValue = '';
 
-	employeeListObjects.forEach(element => {
-		let role = element.getRole();
-		let uniqueLabel = '';
-		let uniqueValue = '';
-
-		switch (role) {
+   employeeListObjects.forEach(element => {
+      // let role = element.getRole();
+      switch (element.getRole()) {
 			case 'Manager':
 				uniqueLabel = 'Office number';
 				uniqueValue = element.getOfficeNumber();
@@ -47,7 +22,7 @@ function buildHtml(employeeListObjects) {
 				break;
 		}
 
-		htmlBodySection += `
+      htmlBodySection += `
            <div class="card col-4" style="width: 25rem">
                <img src="..." class="card-img-top" alt="..." />
                <div class="card-body">
@@ -61,10 +36,9 @@ function buildHtml(employeeListObjects) {
                </ul>
             </div>
 `;
+   });
 
-	});
-
-	console.log('htmlPage', htmlPage);
+   return htmlTopSection + htmlBodySection + htmlBottomSection;
 }
 
-export { buildHtml };
+export { buildHtml }
