@@ -1,5 +1,5 @@
 # Team Profile Generator
-![License Badge](./assets/images/MIT_badge.svg)
+![License Badge](./assets/images/MITbadge.svg)
 ## Description
 
 This application uses a [Node.js](https://nodejs.org/en/about/) command-line program that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
