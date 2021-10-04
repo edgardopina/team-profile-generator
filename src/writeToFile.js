@@ -1,13 +1,14 @@
 import { writeFile } from 'fs';
 
-// function to write 'data' to '/path/to/fileName' file
+// wrapper function to create a promise when using fs.writeFile
 function writeToFile(fileName, data) {
 	return new Promise((resolve, reject) => {
 		writeFile(fileName, data, err => {
-			// if error, reject the Promise and send the error to  Promise's `.catch()` method
+			// if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
 			if (err) {
 				reject(err);
-				return; // return to prevent  the Promise from accidentally executing the resolve() function as well
+				// return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+				return;
 			}
 			// if everything went well, resolve the Promise and send the successful data to the `.then()` method
 			resolve({

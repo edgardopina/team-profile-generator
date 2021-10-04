@@ -1,5 +1,7 @@
+// Get Intern Class definition
 const Intern = require('../lib/Intern');
 
+// Test case for Intern object creation
 test('create Intern object', () => {
 	const intern = new Intern('Int Edgardo Pina', 111777, 'int-edgardopina@yahoo.com', 'UofU');
 	expect(intern.name).toBe('Int Edgardo Pina');

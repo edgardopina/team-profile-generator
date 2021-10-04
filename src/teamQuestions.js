@@ -1,3 +1,4 @@
+// inquirer questionnaire for Manager
 const managerQuestions = [
 	{
 		type: 'input',
@@ -35,6 +36,8 @@ const managerQuestions = [
 		message: "Enter manager office's number (Required): ",
 	},
 ];
+
+// inquirer questionnaire for Engineer and Intern
 const teamQuestions = [
 	{
 		type: 'list',
@@ -81,6 +84,13 @@ const teamQuestions = [
 		type: 'input',
 		name: 'github',
 		message: "Enter the engineer's GitHub username (Required): ",
+		validate: notEmpty => {
+			if (notEmpty) {
+				return true;
+			} else {
+				return false;
+			}
+		},
 	},
 
 	{
@@ -88,6 +98,13 @@ const teamQuestions = [
 		type: 'input',
 		name: 'school',
 		message: "Enter the intern's school name (Required): ",
+		validate: notEmpty => {
+			if (notEmpty) {
+				return true;
+			} else {
+				return false;
+			}
+		},
 	},
 ];
 
